@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background-dark text-spotify-white;
+  }
+}
+
+@layer components {
+  /* Text gradients */
+  .text-gradient-spotify {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-spotify-green to-spotify-green-light;
+  }
+  
+  /* Button styles */
+  .btn-primary {
+    @apply bg-spotify-green text-spotify-black font-semibold px-6 py-2 rounded-lg 
+           hover:bg-spotify-green-light transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-spotify-gray text-spotify-white font-semibold px-6 py-2 rounded-lg 
+           hover:bg-spotify-gray-light transition-colors duration-200;
+  }
+  
+  /* Card styles */
+  .card {
+    @apply bg-spotify-gray rounded-lg p-6 shadow-lg backdrop-blur-sm bg-opacity-90;
+  }
+  
+  /* Input styles */
+  .input {
+    @apply w-full px-4 py-2 rounded-lg bg-spotify-gray-light border border-spotify-gray 
+           text-spotify-white placeholder-spotify-gray-dark focus:outline-none 
+           focus:border-spotify-green transition-colors duration-200;
+  }
+  
+  /* Label styles */
+  .label {
+    @apply block text-spotify-white text-sm font-medium mb-2;
+  }
+
+  /* Tab styles */
+  .tab {
+    @apply px-4 py-2 rounded-full text-spotify-white font-medium transition-all duration-300 hover:bg-spotify-green/20;
+  }
+
+  .tab-active {
+    @apply bg-spotify-green text-spotify-black hover:bg-spotify-green-light;
+  }
+}
+
+@layer utilities {
+  /* Background gradients */
+  .bg-gradient-background {
+    @apply bg-gradient-to-br from-background-dark via-background-light to-background-dark;
+  }
+  
+  /* Glow effects */
+  .glow-spotify {
+    @apply shadow-[0_0_15px_rgba(29,185,84,0.3)];
+  }
+
+  .bg-gradient-spotify {
+    @apply bg-gradient-to-r from-spotify-green to-spotify-green-light;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes slide-up {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-down {
+  from { transform: translateY(-20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slide-left {
+  from { transform: translateX(20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slide-right {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes glow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.2); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Custom utility classes */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out forwards;
+}
+
+.animate-slide-down {
+  animation: slide-down 0.5s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slide-left 0.5s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slide-right 0.5s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(29, 185, 84, 0) 0%, rgba(29, 185, 84, 0.05) 50%, rgba(29, 185, 84, 0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Hover effects */
+.hover-lift {
+  transition: transform 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+}
+
+.hover-glow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+  @apply glow-spotify transition-shadow duration-300;
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Glassmorphism */
+.glass {
+  @apply bg-white bg-opacity-10 backdrop-blur-lg border border-white border-opacity-20;
+}
+
+/* Border glow effects */
+.border-glow-spotify {
+  border: 1px solid rgba(29, 185, 84, 0.3);
+  box-shadow: 0 0 10px rgba(29, 185, 84, 0.3);
+}
+
+/* Custom textarea styling */
+textarea {
+  @apply bg-background-light text-spotify-white border border-spotify-green/20 rounded-md focus:ring-2 focus:ring-spotify-green/50 focus:border-spotify-green transition-all duration-300;
+}
+
+textarea::placeholder {
+  @apply text-spotify-gray-light;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-spotify-gray;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-spotify-green rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-spotify-green-light;
+}
